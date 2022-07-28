@@ -1,15 +1,20 @@
 import 'package:ct_analyst_app/src/features/home/data/test_list.dart';
+import 'package:ct_analyst_app/src/features/home/domain/friday_task.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../constants/.env.dart';
 import '../domain/task.dart';
 import 'package:dio/dio.dart';
 
 abstract class IFetchFridayTaskRepository {
   //fetch the daily tasks.
-  Future<List<Task>> fetchFridayTask();
+  Future<FridayTask> fetchFridayTask();
 }
 
-final clientProvider = Provider((ref) => Dio(BaseOptions(baseUrl: "")));
+final clientProvider = Provider((ref) => Dio(BaseOptions(
+    baseUrl: "http://172.30.7.80:3001/ftask/",
+    headers: {"authorization": dioToken})));
 
 class FetchFridayTaskRepository implements IFetchFridayTaskRepository {
   final Reader read;
@@ -17,15 +22,20 @@ class FetchFridayTaskRepository implements IFetchFridayTaskRepository {
   const FetchFridayTaskRepository(this.read);
 
   @override
-  Future<List<Task>> fetchFridayTask() async {
-    // TODO: implement fetching data from node server
+  Future<FridayTask> fetchFridayTask() async {
+    final response = await read(clientProvider).get('/getFTask');
 
-    await Future.delayed(const Duration(seconds: 2));
+    final fTask = FridayTask.fromJson(response.data);
 
-    // return List<Task>.from(kTaskList.map((x) => Task.fromJson(x)));
-    throw UnimplementedError();
+    return fTask;
   }
 }
 
-final dailyTaskRepositoryProvider = Provider<FetchFridayTaskRepository>(
+final fridayTaskRepositoryProvider = Provider<FetchFridayTaskRepository>(
     (ref) => FetchFridayTaskRepository(ref.read));
+
+final fetchFridayTaskProvider = FutureProvider<FridayTask>((ref) async {
+  final fridayTaskRepository = ref.watch(fridayTaskRepositoryProvider);
+
+  return fridayTaskRepository.fetchFridayTask();
+});

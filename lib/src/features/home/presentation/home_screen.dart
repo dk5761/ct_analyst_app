@@ -1,5 +1,7 @@
 import 'dart:io';
 import 'package:ct_analyst_app/src/constants/app_breakpoints.dart';
+import 'package:ct_analyst_app/src/features/home/presentation/main_screen/main_screen.dart';
+import 'package:ct_analyst_app/src/features/home/presentation/sidepanel/side_panel_screen.dart';
 import 'package:tray_manager/tray_manager.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:flutter/material.dart' hide MenuItem;
@@ -71,9 +73,9 @@ class _HomePageState extends State<HomePage> with WindowListener, TrayListener {
                   title: const Text('Daily Task'),
                 ),
               ),
-              body: SplitView(
-                content: Container(),
-                menu: Container(),
+              body: const SplitView(
+                content: MainScreen(),
+                menu: SidePanel(),
                 breakpoint: Breakpoint.breakpointMobile,
                 menuWidth: 3,
               )),

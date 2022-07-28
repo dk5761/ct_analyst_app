@@ -9,6 +9,7 @@ class TimerTextWidget extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final timeLeft = ref.watch(timeLeftProvider);
+
     return Text(
       timeLeft,
       style: Theme.of(context).textTheme.headline2,

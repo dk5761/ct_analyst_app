@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../features/home/data/fridayTaskRepo.dart';
+
 class SplitView extends ConsumerWidget {
   const SplitView({
     Key? key,

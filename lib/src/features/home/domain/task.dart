@@ -11,7 +11,7 @@ class Task {
 
   factory Task.fromJson(Map<String, dynamic> json) => Task(
         title: json["title"],
-        imageUrl: json["imageURL"],
+        imageUrl: json["imageUrl"],
         url: json["url"],
       );
 
