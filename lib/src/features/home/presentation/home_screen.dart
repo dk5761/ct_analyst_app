@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:ct_analyst_app/src/constants/app_breakpoints.dart';
+import 'package:ct_analyst_app/src/features/authentication/presentation/auth_screens/login_screen.dart';
 import 'package:ct_analyst_app/src/features/home/presentation/main_screen/main_screen.dart';
 import 'package:ct_analyst_app/src/features/home/presentation/sidepanel/side_panel_screen.dart';
 import 'package:tray_manager/tray_manager.dart';
@@ -74,7 +75,7 @@ class _HomePageState extends State<HomePage> with WindowListener, TrayListener {
                 ),
               ),
               body: const SplitView(
-                content: MainScreen(),
+                content: LoginScreen(),
                 menu: SidePanel(),
                 breakpoint: Breakpoint.breakpointMobile,
                 menuWidth: 3,

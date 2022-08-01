@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../common/custom_list_tile.dart';
+import '../../../../constants/colors.dart';
 import '../../data/dailyTaskRepo.dart';
 
 class DailyTaskList extends ConsumerWidget {
@@ -23,7 +24,16 @@ class DailyTaskList extends ConsumerWidget {
                 )
                 .toList();
           },
-          error: (error, _) => [Text(error.toString())],
+          error: (error, _) {
+            return const [
+              Center(
+                child: Text(
+                  "Please check Internet Connection",
+                  style: TextStyle(color: darkHeaderTextColor),
+                ),
+              ),
+            ];
+          },
           loading: () => [const Center(child: CircularProgressIndicator())]),
     );
   }

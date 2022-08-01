@@ -1,3 +1,4 @@
+import 'package:ct_analyst_app/src/features/authentication/presentation/auth_screens/login_screen.dart';
 import 'package:ct_analyst_app/src/features/home/presentation/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
