@@ -1,5 +1,6 @@
 import 'package:ct_analyst_app/src/features/authentication/domain/user/app_user.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 abstract class IAuthRepository {
@@ -10,7 +11,7 @@ abstract class IAuthRepository {
 }
 
 final clientProvider = Provider(
-    (ref) => Dio(BaseOptions(baseUrl: "http://172.30.7.80:3001/user/")));
+    (ref) => Dio(BaseOptions(baseUrl: "http://${dotenv.env['IP']}/user/")));
 
 class AuthRepository implements IAuthRepository {
   AuthRepository(this.ref);
@@ -26,9 +27,9 @@ class AuthRepository implements IAuthRepository {
         .read(clientProvider)
         .post('login', data: {"csslId": csslId, "password": password});
 
-    _currentUser = response.data;
+    _currentUser = User.fromJson(response.data);
 
-    return response.data;
+    return User.fromJson(response.data);
   }
 
   @override
@@ -42,15 +43,14 @@ class AuthRepository implements IAuthRepository {
       "position": position
     });
 
-    _currentUser = response.data;
+    _currentUser = User.fromJson(response.data);
 
-    return response.data;
+    return User.fromJson(response.data);
   }
 
   @override
   Future<void> signOut() async {
     _currentUser = null;
-    //TODO: remove token from the secured storage.
   }
 }
 

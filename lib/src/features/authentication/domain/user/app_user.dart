@@ -2,6 +2,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'app_user.freezed.dart';
+part 'app_user.g.dart';
 
 @freezed
 class User with _$User {
@@ -9,6 +10,8 @@ class User with _$User {
     required AppUser user,
     required String token,
   }) = _User;
+
+  factory User.fromJson(Map<String, Object?> json) => _$UserFromJson(json);
 }
 
 @freezed
@@ -19,4 +22,7 @@ class AppUser with _$AppUser {
     required String lastName,
     required bool isAdmin,
   }) = _AppUser;
+
+  factory AppUser.fromJson(Map<String, Object?> json) =>
+      _$AppUserFromJson(json);
 }

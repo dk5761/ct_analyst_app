@@ -14,11 +14,16 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+User _$UserFromJson(Map<String, dynamic> json) {
+  return _User.fromJson(json);
+}
+
 /// @nodoc
 mixin _$User {
   AppUser get user => throw _privateConstructorUsedError;
   String get token => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
 }
@@ -104,9 +109,11 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_User implements _User {
   _$_User({required this.user, required this.token});
+
+  factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
 
   @override
   final AppUser user;
@@ -127,6 +134,7 @@ class _$_User implements _User {
             const DeepCollectionEquality().equals(other.token, token));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -137,11 +145,20 @@ class _$_User implements _User {
   @override
   _$$_UserCopyWith<_$_User> get copyWith =>
       __$$_UserCopyWithImpl<_$_User>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_UserToJson(
+      this,
+    );
+  }
 }
 
 abstract class _User implements User {
   factory _User({required final AppUser user, required final String token}) =
       _$_User;
+
+  factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
   @override
   AppUser get user;
@@ -152,6 +169,10 @@ abstract class _User implements User {
   _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;
 }
 
+AppUser _$AppUserFromJson(Map<String, dynamic> json) {
+  return _AppUser.fromJson(json);
+}
+
 /// @nodoc
 mixin _$AppUser {
   String get csslId => throw _privateConstructorUsedError;
@@ -159,6 +180,7 @@ mixin _$AppUser {
   String get lastName => throw _privateConstructorUsedError;
   bool get isAdmin => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $AppUserCopyWith<AppUser> get copyWith => throw _privateConstructorUsedError;
 }
@@ -253,13 +275,16 @@ class __$$_AppUserCopyWithImpl<$Res> extends _$AppUserCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_AppUser implements _AppUser {
   _$_AppUser(
       {required this.csslId,
       required this.firstName,
       required this.lastName,
       required this.isAdmin});
+
+  factory _$_AppUser.fromJson(Map<String, dynamic> json) =>
+      _$$_AppUserFromJson(json);
 
   @override
   final String csslId;
@@ -286,6 +311,7 @@ class _$_AppUser implements _AppUser {
             const DeepCollectionEquality().equals(other.isAdmin, isAdmin));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -298,6 +324,13 @@ class _$_AppUser implements _AppUser {
   @override
   _$$_AppUserCopyWith<_$_AppUser> get copyWith =>
       __$$_AppUserCopyWithImpl<_$_AppUser>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_AppUserToJson(
+      this,
+    );
+  }
 }
 
 abstract class _AppUser implements AppUser {
@@ -306,6 +339,8 @@ abstract class _AppUser implements AppUser {
       required final String firstName,
       required final String lastName,
       required final bool isAdmin}) = _$_AppUser;
+
+  factory _AppUser.fromJson(Map<String, dynamic> json) = _$_AppUser.fromJson;
 
   @override
   String get csslId;

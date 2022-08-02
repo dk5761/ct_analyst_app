@@ -1,3 +1,4 @@
+import 'package:logger/logger.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 void launchURL(String url) async {
@@ -8,3 +9,5 @@ void launchURL(String url) async {
     throw 'Could not launch $url';
   }
 }
+
+final logger = Logger();

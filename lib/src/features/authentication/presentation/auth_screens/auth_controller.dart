@@ -1,6 +1,7 @@
 import 'package:ct_analyst_app/src/features/authentication/application/auth_local_service.dart';
 import 'package:ct_analyst_app/src/features/authentication/data/auth_repository.dart';
 import 'package:ct_analyst_app/src/features/authentication/domain/auth_state/auth_state.dart';
+import 'package:ct_analyst_app/src/utils/functions.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class AuthController extends StateNotifier<AuthState> {
@@ -16,8 +17,8 @@ class AuthController extends StateNotifier<AuthState> {
       final data = await authRepository.login(csslId, password);
       await read(authServiceProvider).addToken(data.token);
       state = const AuthState.loggedIn();
-    } catch (e) {
-      print(e);
+    } catch (err) {
+      logger.e(err);
       state = const AuthState.error();
     }
   }
@@ -30,8 +31,19 @@ class AuthController extends StateNotifier<AuthState> {
           csslId, firstName, lastName, password, position);
       await read(authServiceProvider).addToken(data.token);
       state = const AuthState.loggedIn();
-    } catch (e) {
-      print(e);
+    } catch (err) {
+      logger.e(err);
+      state = const AuthState.error();
+    }
+  }
+
+  Future<void> signOut() async {
+    try {
+      await authRepository.signOut();
+      await read(authServiceProvider).removeToken();
+      state = const AuthState.initial();
+    } catch (err) {
+      logger.e(err);
       state = const AuthState.error();
     }
   }

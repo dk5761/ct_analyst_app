@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 
+import '../../../../constants/colors.dart';
+
 // ignore: must_be_immutable
 class CustomDropDown extends StatefulWidget {
   String value;
@@ -19,12 +21,12 @@ class _CustomDropDown extends State<CustomDropDown> {
   Widget build(BuildContext context) {
     return DropdownButton<String>(
       value: widget.value,
-      icon: const Icon(Icons.arrow_downward),
+      borderRadius: BorderRadius.all(Radius.circular(12)),
       elevation: 16,
-      style: const TextStyle(color: Colors.deepPurple),
+      style: const TextStyle(color: darkHeaderTextColor),
       underline: Container(
-        height: 2,
-        color: Colors.deepPurpleAccent,
+        height: 0,
+        color: darkTextEnableFocusColor,
       ),
       onChanged: (String? newValue) {
         setState(() {
@@ -41,7 +43,7 @@ class _CustomDropDown extends State<CustomDropDown> {
       ].map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(
           value: value,
-          child: Text(value),
+          child: Padding(padding: const EdgeInsets.all(8), child: Text(value)),
         );
       }).toList(),
     );

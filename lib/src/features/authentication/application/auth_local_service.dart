@@ -19,6 +19,10 @@ class AuthService {
     return value;
   }
 
+  Future<void> removeToken() async {
+    await storage.delete(key: "token");
+  }
+
   Future<int> getPositionInt(String value) async {
     switch (value) {
       case 'Analyst':
