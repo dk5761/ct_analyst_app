@@ -46,6 +46,7 @@ dependencies:
   json_annotation: ^4.6.0
   logger: ^1.1.0
   auto_route: ^4.2.1
+  dartz: ^0.10.1
   
 
 dev_dependencies:
