@@ -1,4 +1,5 @@
 import 'package:ct_analyst_app/src/features/authentication/domain/user/app_user.dart';
+import 'package:ct_analyst_app/src/utils/functions.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -29,6 +30,7 @@ class AuthRepository implements IAuthRepository {
 
     _currentUser = User.fromJson(response.data);
 
+    logger.d(_currentUser);
     return User.fromJson(response.data);
   }
 
@@ -55,3 +57,6 @@ class AuthRepository implements IAuthRepository {
 }
 
 final authRepositoryProvider = Provider((ref) => AuthRepository(ref));
+
+final currentUserProvider =
+    Provider((ref) => ref.watch(authRepositoryProvider).currentUser);

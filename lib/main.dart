@@ -70,8 +70,5 @@ void main() async {
     });
   }
 
-  //AKfycby_Pr0q-x5dM7frWkukAkHoqYXXJlNGvQwmvfpK1pISkd3hbFEz66JFF-ULxVRr4T_B7w
-  //https://script.google.com/macros/s/AKfycby_Pr0q-x5dM7frWkukAkHoqYXXJlNGvQwmvfpK1pISkd3hbFEz66JFF-ULxVRr4T_B7w/exec
-
-  runApp(const ProviderScope(child: MyApp()));
+  runApp(ProviderScope(child: MyApp()));
 }

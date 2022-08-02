@@ -2,6 +2,7 @@ import 'package:ct_analyst_app/src/common/custom_button.dart';
 import 'package:ct_analyst_app/src/common/textField.dart';
 import 'package:ct_analyst_app/src/constants/colors.dart';
 import 'package:ct_analyst_app/src/features/authentication/data/auth_repository.dart';
+import 'package:ct_analyst_app/src/features/authentication/presentation/auth_screens/auth_controller.dart';
 import 'package:ct_analyst_app/src/features/authentication/presentation/screen_holder/screen_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -37,7 +38,7 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
     try {
       if (_csslId.text.isNotEmpty || _passwordController.text.isNotEmpty) {
         await ref
-            .watch(authRepositoryProvider)
+            .watch(authProvider.notifier)
             .login(_csslId.text, _passwordController.text);
       }
     } catch (err) {

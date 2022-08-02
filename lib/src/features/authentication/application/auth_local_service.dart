@@ -1,6 +1,3 @@
-import 'dart:ffi';
-
-import 'package:ct_analyst_app/src/features/authentication/data/auth_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
@@ -44,7 +41,3 @@ class AuthService {
 }
 
 final authServiceProvider = Provider<AuthService>((ref) => AuthService(ref));
-
-final getToken = FutureProvider(
-  (ref) => ref.read(authServiceProvider).getToken(),
-);

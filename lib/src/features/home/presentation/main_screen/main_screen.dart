@@ -4,6 +4,8 @@
 // import 'package:dailytask/widgets/custom_list_tile.dart';
 // import 'package:dailytask/widgets/friday_task_container.dart';
 // import 'package:dailytask/widgets/timezones_container.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:ct_analyst_app/src/common/custom_button.dart';
 import 'package:ct_analyst_app/src/constants/app_breakpoints.dart';
 import 'package:ct_analyst_app/src/features/home/presentation/widgets/dailyTaskListWidget.dart';
 import 'package:flutter/material.dart';
@@ -22,8 +24,6 @@ class MainScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final width = MediaQuery.of(context).size.width;
-    // final taskList = ref.read(listOfTaskProvider);
-    // final fridayTasks = ref.watch(fridayTaskProvider);
     final fridayTasks = ref.watch(fetchFridayTaskProvider);
 
     return Container(
@@ -33,6 +33,28 @@ class MainScreen extends ConsumerWidget {
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 12.0),
+                child: Text(
+                  "Tasks & Timer",
+                  style: TextStyle(
+                      color: darkHeaderTextColor,
+                      fontSize: 21,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+              CustomButton(
+                label: "Go To DashBoard",
+                onPressed: () => AutoRouter.of(context).pushNamed('dashboard'),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 10,
+          ),
           const TimeZoneContainer(),
           const CountDown(),
           const SizedBox(

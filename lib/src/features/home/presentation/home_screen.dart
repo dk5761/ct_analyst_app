@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:ct_analyst_app/src/constants/app_breakpoints.dart';
 import 'package:ct_analyst_app/src/features/authentication/presentation/auth_screens/login_screen.dart';
 import 'package:ct_analyst_app/src/features/home/presentation/main_screen/main_screen.dart';
@@ -75,7 +77,7 @@ class _HomePageState extends State<HomePage> with WindowListener, TrayListener {
                 ),
               ),
               body: const SplitView(
-                content: LoginScreen(),
+                content: AutoRouter(),
                 menu: SidePanel(),
                 breakpoint: Breakpoint.breakpointMobile,
                 menuWidth: 3,

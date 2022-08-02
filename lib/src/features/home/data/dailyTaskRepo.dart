@@ -1,7 +1,6 @@
-import 'package:ct_analyst_app/src/features/home/data/test_list.dart';
+import 'package:ct_analyst_app/src/features/authentication/application/auth_local_service.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import '../../../constants/.env.dart';
 import '../domain/task.dart';
 import 'package:dio/dio.dart';
 
@@ -10,9 +9,9 @@ abstract class IDailyTaskRepository {
   Future<List<Task>> fetchDailyTask();
 }
 
-final clientProvider = Provider((ref) => Dio(BaseOptions(
-    baseUrl: "http://172.30.7.80:3001/dtask/",
-    headers: {"authorization": dioToken})));
+final clientProvider = Provider.family((ref, token) => Dio(BaseOptions(
+    baseUrl: "http://${dotenv.env['IP']}/dtask/",
+    headers: {"authorization": token})));
 
 class DailyTaskRepository implements IDailyTaskRepository {
   final Reader read;
@@ -21,7 +20,8 @@ class DailyTaskRepository implements IDailyTaskRepository {
 
   @override
   Future<List<Task>> fetchDailyTask() async {
-    final response = await read(clientProvider).get('/getAllTask');
+    final token = await read(authServiceProvider).getToken();
+    final response = await read(clientProvider(token)).get('/getAllTask');
 
     return List<Task>.from(response.data.map((x) => Task.fromJson(x)));
   }

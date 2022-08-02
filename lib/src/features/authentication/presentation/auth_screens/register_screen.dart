@@ -1,5 +1,6 @@
 import 'package:ct_analyst_app/src/constants/colors.dart';
 import 'package:ct_analyst_app/src/features/authentication/application/auth_local_service.dart';
+import 'package:ct_analyst_app/src/features/authentication/presentation/auth_screens/auth_controller.dart';
 import 'package:ct_analyst_app/src/features/authentication/presentation/widgets/custom_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -47,7 +48,7 @@ class RegisterScreenState extends ConsumerState<RegisterScreen> {
       final position =
           await ref.read(authServiceProvider).getPositionInt(_positionValue);
 
-      await ref.watch(authRepositoryProvider).register(
+      await ref.watch(authProvider.notifier).register(
             _csslId.text,
             _passwordController.text,
             _firstNameController.text,

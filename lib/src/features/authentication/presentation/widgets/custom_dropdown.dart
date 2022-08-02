@@ -1,7 +1,6 @@
 // change it to riverpod class
 
 import 'package:flutter/material.dart';
-
 import '../../../../constants/colors.dart';
 
 // ignore: must_be_immutable
@@ -21,7 +20,7 @@ class _CustomDropDown extends State<CustomDropDown> {
   Widget build(BuildContext context) {
     return DropdownButton<String>(
       value: widget.value,
-      borderRadius: BorderRadius.all(Radius.circular(12)),
+      borderRadius: const BorderRadius.all(Radius.circular(12)),
       elevation: 16,
       style: const TextStyle(color: darkHeaderTextColor),
       underline: Container(

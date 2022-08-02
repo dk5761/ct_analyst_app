@@ -1,20 +1,16 @@
-import 'package:ct_analyst_app/src/features/home/data/test_list.dart';
 import 'package:ct_analyst_app/src/features/home/domain/friday_task.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import '../../../constants/.env.dart';
-import '../domain/task.dart';
 import 'package:dio/dio.dart';
+import '../../authentication/application/auth_local_service.dart';
 
 abstract class IFetchFridayTaskRepository {
   //fetch the daily tasks.
   Future<FridayTask> fetchFridayTask();
 }
 
-final clientProvider = Provider((ref) => Dio(BaseOptions(
+final clientProvider = Provider.family((ref, token) => Dio(BaseOptions(
     baseUrl: "http://172.30.7.80:3001/ftask/",
-    headers: {"authorization": dioToken})));
+    headers: {"authorization": token})));
 
 class FetchFridayTaskRepository implements IFetchFridayTaskRepository {
   final Reader read;
@@ -23,7 +19,8 @@ class FetchFridayTaskRepository implements IFetchFridayTaskRepository {
 
   @override
   Future<FridayTask> fetchFridayTask() async {
-    final response = await read(clientProvider).get('/getFTask');
+    final token = await read(authServiceProvider).getToken();
+    final response = await read(clientProvider(token)).get('/getFTask');
 
     final fTask = FridayTask.fromJson(response.data);
 
