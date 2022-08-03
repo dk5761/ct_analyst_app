@@ -88,10 +88,20 @@ class RegisterScreenState extends ConsumerState<RegisterScreen> {
                   ),
                   const SizedBox(height: 18),
                   CustomTextFormField(
-                      controller: _csslId,
-                      placeHolder: "Cssl ID",
-                      textInputAction: TextInputAction.next,
-                      onEditingComplete: () => _editingComplete(_csslId)),
+                    controller: _csslId,
+                    placeHolder: "Cssl ID",
+                    textInputAction: TextInputAction.next,
+                    onEditingComplete: () => _editingComplete(_csslId),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please Enter a value';
+                      }
+                      if (RegExp(r'^[a-z]+$').hasMatch(value)) {
+                        return 'Please Enter Id Numbers';
+                      }
+                      return null;
+                    },
+                  ),
                   const SizedBox(height: 10),
                   CustomTextFormField(
                       controller: _passwordController,
@@ -104,20 +114,42 @@ class RegisterScreenState extends ConsumerState<RegisterScreen> {
                     height: 10,
                   ),
                   CustomTextFormField(
-                      controller: _firstNameController,
-                      placeHolder: "First Name",
-                      textInputAction: TextInputAction.next,
-                      onEditingComplete: () =>
-                          _editingComplete(_firstNameController)),
+                    controller: _firstNameController,
+                    placeHolder: "First Name",
+                    textInputAction: TextInputAction.next,
+                    onEditingComplete: () =>
+                        _editingComplete(_firstNameController),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please Enter a value';
+                      }
+                      if (RegExp(r'^-?(([0-9]*)|(([0-9]*)\.([0-9]*)))$')
+                          .hasMatch(value)) {
+                        return 'Please Enter Alphabets only';
+                      }
+                      return null;
+                    },
+                  ),
                   const SizedBox(
                     height: 10,
                   ),
                   CustomTextFormField(
-                      controller: _lastNameController,
-                      placeHolder: "Last Name",
-                      textInputAction: TextInputAction.next,
-                      onEditingComplete: () =>
-                          _editingComplete(_lastNameController)),
+                    controller: _lastNameController,
+                    placeHolder: "Last Name",
+                    textInputAction: TextInputAction.next,
+                    onEditingComplete: () =>
+                        _editingComplete(_lastNameController),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please Enter a value';
+                      }
+                      if (RegExp(r'^-?(([0-9]*)|(([0-9]*)\.([0-9]*)))$')
+                          .hasMatch(value)) {
+                        return 'Please Enter Alphabets only';
+                      }
+                      return null;
+                    },
+                  ),
                   const SizedBox(
                     height: 10,
                   ),

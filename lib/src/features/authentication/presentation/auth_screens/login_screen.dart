@@ -84,8 +84,11 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
                     onEditingComplete: () => _editingComplete(_csslId),
                     textInputAction: TextInputAction.next,
                     validator: (value) {
-                      if (value == null) {
-                        return value;
+                      if (value == null || value.isEmpty) {
+                        return 'Please Enter a value';
+                      }
+                      if (RegExp(r'^[a-z]+$').hasMatch(value)) {
+                        return 'Please Enter Id Numbers';
                       }
                       return null;
                     },
@@ -99,7 +102,7 @@ class LoginScreenState extends ConsumerState<LoginScreen> {
                         _passwordEditingComplete(_passwordController),
                     textInputAction: TextInputAction.next,
                     validator: (value) {
-                      if (value == null) {
+                      if (value == null || value.isEmpty) {
                         return value;
                       }
                       return null;
