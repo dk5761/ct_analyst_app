@@ -29,14 +29,12 @@ class AuthRepository implements IAuthRepository {
         .post('login', data: {"csslId": csslId, "password": password});
 
     _currentUser = User.fromJson(response.data);
-
-    logger.d(_currentUser);
     return User.fromJson(response.data);
   }
 
   @override
-  Future<User> register(String csslId, String firstName, String lastName,
-      String password, int position) async {
+  Future<User> register(String csslId, String password, String firstName,
+      String lastName, int position) async {
     final response = await ref.read(clientProvider).post('register', data: {
       "csslId": csslId,
       "firstName": firstName,

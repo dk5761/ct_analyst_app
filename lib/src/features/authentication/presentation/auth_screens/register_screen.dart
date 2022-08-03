@@ -106,7 +106,6 @@ class RegisterScreenState extends ConsumerState<RegisterScreen> {
                   CustomTextFormField(
                       controller: _firstNameController,
                       placeHolder: "First Name",
-                      hidden: true,
                       textInputAction: TextInputAction.next,
                       onEditingComplete: () =>
                           _editingComplete(_firstNameController)),
@@ -116,7 +115,6 @@ class RegisterScreenState extends ConsumerState<RegisterScreen> {
                   CustomTextFormField(
                       controller: _lastNameController,
                       placeHolder: "Last Name",
-                      hidden: true,
                       textInputAction: TextInputAction.next,
                       onEditingComplete: () =>
                           _editingComplete(_lastNameController)),

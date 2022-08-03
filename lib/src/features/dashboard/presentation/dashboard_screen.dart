@@ -1,9 +1,8 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:ct_analyst_app/src/features/home/presentation/main_screen/main_screen.dart';
+import 'package:ct_analyst_app/src/features/dashboard/presentation/widgets/table_generator.dart';
 import 'package:ct_analyst_app/src/routing/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import '../../../common/custom_button.dart';
 import '../../../constants/colors.dart';
 import '../../authentication/data/auth_repository.dart';
@@ -14,7 +13,7 @@ class DashboardPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final position =
-        ref.read(authRepositoryProvider).currentUser!.user.position;
+        ref.watch(authRepositoryProvider).currentUser!.user.position;
 
     return Padding(
       padding: const EdgeInsets.all(16),
@@ -41,9 +40,10 @@ class DashboardPage extends ConsumerWidget {
                 ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 12,
           ),
+          const Expanded(child: TableGenerator())
         ],
       ),
     );

@@ -23,11 +23,13 @@ class DashboardRepository implements IDashboardRepository {
   DashboardData? get dashboardData => _data;
 
   @override
-  Future<void> fetchDashboard() async {
+  Future<DashboardData?> fetchDashboard() async {
     final token = await read(authServiceProvider).getToken();
     final response = await read(clientProvider(token)).get('/getData');
 
     _data = DashboardData.fromJson(response.data);
+
+    return _data;
   }
 }
 

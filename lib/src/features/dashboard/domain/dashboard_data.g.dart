@@ -8,37 +8,18 @@ part of 'dashboard_data.dart';
 
 _$_DashboardData _$$_DashboardDataFromJson(Map<String, dynamic> json) =>
     _$_DashboardData(
-      monthList: (json['monthList'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
-      csat: (json['csat'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      communication: (json['communication'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
-      surveyCount: (json['surveyCount'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
-      closedCase:
-          (json['closedCase'] as List<dynamic>?)?.map((e) => e as int).toList(),
-      atrDays: (json['atrDays'] as List<dynamic>?)
-          ?.map((e) => (e as num).toDouble())
-          .toList(),
-      ownedCases:
-          (json['ownedCases'] as List<dynamic>?)?.map((e) => e as int).toList(),
-      adherance: (json['adherance'] as List<dynamic>?)
-          ?.map((e) => (e as num).toDouble())
-          .toList(),
-      timeoutsPhone: (json['timeoutsPhone'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
-      timeoutsChat: (json['timeoutsChat'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
-      lateLogins: (json['lateLogins'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
-      coverage:
-          (json['coverage'] as List<dynamic>?)?.map((e) => e as int).toList(),
+      monthList: json['monthList'] as List<dynamic>?,
+      csat: json['csat'] as List<dynamic>?,
+      communication: json['communication'] as List<dynamic>?,
+      surveyCount: json['surveyCount'] as List<dynamic>?,
+      closedCase: json['closedCase'] as List<dynamic>?,
+      atrDays: json['atrDays'] as List<dynamic>?,
+      ownedCases: json['ownedCases'] as List<dynamic>?,
+      adherance: json['adherance'] as List<dynamic>?,
+      timeoutsPhone: json['timeoutsPhone'] as List<dynamic>?,
+      timeoutsChat: json['timeoutsChat'] as List<dynamic>?,
+      lateLogins: json['lateLogins'] as List<dynamic>?,
+      coverage: json['coverage'] as List<dynamic>?,
     );
 
 Map<String, dynamic> _$$_DashboardDataToJson(_$_DashboardData instance) =>

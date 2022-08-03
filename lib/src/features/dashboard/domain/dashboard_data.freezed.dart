@@ -20,18 +20,18 @@ DashboardData _$DashboardDataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DashboardData {
-  List<String>? get monthList => throw _privateConstructorUsedError;
-  List<String>? get csat => throw _privateConstructorUsedError;
-  List<String>? get communication => throw _privateConstructorUsedError;
-  List<String>? get surveyCount => throw _privateConstructorUsedError;
-  List<int>? get closedCase => throw _privateConstructorUsedError;
-  List<double>? get atrDays => throw _privateConstructorUsedError;
-  List<int>? get ownedCases => throw _privateConstructorUsedError;
-  List<double>? get adherance => throw _privateConstructorUsedError;
-  List<String>? get timeoutsPhone => throw _privateConstructorUsedError;
-  List<String>? get timeoutsChat => throw _privateConstructorUsedError;
-  List<String>? get lateLogins => throw _privateConstructorUsedError;
-  List<int>? get coverage => throw _privateConstructorUsedError;
+  List<dynamic>? get monthList => throw _privateConstructorUsedError;
+  List<dynamic>? get csat => throw _privateConstructorUsedError;
+  List<dynamic>? get communication => throw _privateConstructorUsedError;
+  List<dynamic>? get surveyCount => throw _privateConstructorUsedError;
+  List<dynamic>? get closedCase => throw _privateConstructorUsedError;
+  List<dynamic>? get atrDays => throw _privateConstructorUsedError;
+  List<dynamic>? get ownedCases => throw _privateConstructorUsedError;
+  List<dynamic>? get adherance => throw _privateConstructorUsedError;
+  List<dynamic>? get timeoutsPhone => throw _privateConstructorUsedError;
+  List<dynamic>? get timeoutsChat => throw _privateConstructorUsedError;
+  List<dynamic>? get lateLogins => throw _privateConstructorUsedError;
+  List<dynamic>? get coverage => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,18 +45,18 @@ abstract class $DashboardDataCopyWith<$Res> {
           DashboardData value, $Res Function(DashboardData) then) =
       _$DashboardDataCopyWithImpl<$Res>;
   $Res call(
-      {List<String>? monthList,
-      List<String>? csat,
-      List<String>? communication,
-      List<String>? surveyCount,
-      List<int>? closedCase,
-      List<double>? atrDays,
-      List<int>? ownedCases,
-      List<double>? adherance,
-      List<String>? timeoutsPhone,
-      List<String>? timeoutsChat,
-      List<String>? lateLogins,
-      List<int>? coverage});
+      {List<dynamic>? monthList,
+      List<dynamic>? csat,
+      List<dynamic>? communication,
+      List<dynamic>? surveyCount,
+      List<dynamic>? closedCase,
+      List<dynamic>? atrDays,
+      List<dynamic>? ownedCases,
+      List<dynamic>? adherance,
+      List<dynamic>? timeoutsPhone,
+      List<dynamic>? timeoutsChat,
+      List<dynamic>? lateLogins,
+      List<dynamic>? coverage});
 }
 
 /// @nodoc
@@ -87,51 +87,51 @@ class _$DashboardDataCopyWithImpl<$Res>
       monthList: monthList == freezed
           ? _value.monthList
           : monthList // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as List<dynamic>?,
       csat: csat == freezed
           ? _value.csat
           : csat // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as List<dynamic>?,
       communication: communication == freezed
           ? _value.communication
           : communication // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as List<dynamic>?,
       surveyCount: surveyCount == freezed
           ? _value.surveyCount
           : surveyCount // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as List<dynamic>?,
       closedCase: closedCase == freezed
           ? _value.closedCase
           : closedCase // ignore: cast_nullable_to_non_nullable
-              as List<int>?,
+              as List<dynamic>?,
       atrDays: atrDays == freezed
           ? _value.atrDays
           : atrDays // ignore: cast_nullable_to_non_nullable
-              as List<double>?,
+              as List<dynamic>?,
       ownedCases: ownedCases == freezed
           ? _value.ownedCases
           : ownedCases // ignore: cast_nullable_to_non_nullable
-              as List<int>?,
+              as List<dynamic>?,
       adherance: adherance == freezed
           ? _value.adherance
           : adherance // ignore: cast_nullable_to_non_nullable
-              as List<double>?,
+              as List<dynamic>?,
       timeoutsPhone: timeoutsPhone == freezed
           ? _value.timeoutsPhone
           : timeoutsPhone // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as List<dynamic>?,
       timeoutsChat: timeoutsChat == freezed
           ? _value.timeoutsChat
           : timeoutsChat // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as List<dynamic>?,
       lateLogins: lateLogins == freezed
           ? _value.lateLogins
           : lateLogins // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as List<dynamic>?,
       coverage: coverage == freezed
           ? _value.coverage
           : coverage // ignore: cast_nullable_to_non_nullable
-              as List<int>?,
+              as List<dynamic>?,
     ));
   }
 }
@@ -144,18 +144,18 @@ abstract class _$$_DashboardDataCopyWith<$Res>
       __$$_DashboardDataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {List<String>? monthList,
-      List<String>? csat,
-      List<String>? communication,
-      List<String>? surveyCount,
-      List<int>? closedCase,
-      List<double>? atrDays,
-      List<int>? ownedCases,
-      List<double>? adherance,
-      List<String>? timeoutsPhone,
-      List<String>? timeoutsChat,
-      List<String>? lateLogins,
-      List<int>? coverage});
+      {List<dynamic>? monthList,
+      List<dynamic>? csat,
+      List<dynamic>? communication,
+      List<dynamic>? surveyCount,
+      List<dynamic>? closedCase,
+      List<dynamic>? atrDays,
+      List<dynamic>? ownedCases,
+      List<dynamic>? adherance,
+      List<dynamic>? timeoutsPhone,
+      List<dynamic>? timeoutsChat,
+      List<dynamic>? lateLogins,
+      List<dynamic>? coverage});
 }
 
 /// @nodoc
@@ -188,51 +188,51 @@ class __$$_DashboardDataCopyWithImpl<$Res>
       monthList: monthList == freezed
           ? _value._monthList
           : monthList // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as List<dynamic>?,
       csat: csat == freezed
           ? _value._csat
           : csat // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as List<dynamic>?,
       communication: communication == freezed
           ? _value._communication
           : communication // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as List<dynamic>?,
       surveyCount: surveyCount == freezed
           ? _value._surveyCount
           : surveyCount // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as List<dynamic>?,
       closedCase: closedCase == freezed
           ? _value._closedCase
           : closedCase // ignore: cast_nullable_to_non_nullable
-              as List<int>?,
+              as List<dynamic>?,
       atrDays: atrDays == freezed
           ? _value._atrDays
           : atrDays // ignore: cast_nullable_to_non_nullable
-              as List<double>?,
+              as List<dynamic>?,
       ownedCases: ownedCases == freezed
           ? _value._ownedCases
           : ownedCases // ignore: cast_nullable_to_non_nullable
-              as List<int>?,
+              as List<dynamic>?,
       adherance: adherance == freezed
           ? _value._adherance
           : adherance // ignore: cast_nullable_to_non_nullable
-              as List<double>?,
+              as List<dynamic>?,
       timeoutsPhone: timeoutsPhone == freezed
           ? _value._timeoutsPhone
           : timeoutsPhone // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as List<dynamic>?,
       timeoutsChat: timeoutsChat == freezed
           ? _value._timeoutsChat
           : timeoutsChat // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as List<dynamic>?,
       lateLogins: lateLogins == freezed
           ? _value._lateLogins
           : lateLogins // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as List<dynamic>?,
       coverage: coverage == freezed
           ? _value._coverage
           : coverage // ignore: cast_nullable_to_non_nullable
-              as List<int>?,
+              as List<dynamic>?,
     ));
   }
 }
@@ -241,18 +241,18 @@ class __$$_DashboardDataCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_DashboardData implements _DashboardData {
   _$_DashboardData(
-      {required final List<String>? monthList,
-      required final List<String>? csat,
-      required final List<String>? communication,
-      required final List<String>? surveyCount,
-      required final List<int>? closedCase,
-      required final List<double>? atrDays,
-      required final List<int>? ownedCases,
-      required final List<double>? adherance,
-      required final List<String>? timeoutsPhone,
-      required final List<String>? timeoutsChat,
-      required final List<String>? lateLogins,
-      required final List<int>? coverage})
+      {required final List<dynamic>? monthList,
+      required final List<dynamic>? csat,
+      required final List<dynamic>? communication,
+      required final List<dynamic>? surveyCount,
+      required final List<dynamic>? closedCase,
+      required final List<dynamic>? atrDays,
+      required final List<dynamic>? ownedCases,
+      required final List<dynamic>? adherance,
+      required final List<dynamic>? timeoutsPhone,
+      required final List<dynamic>? timeoutsChat,
+      required final List<dynamic>? lateLogins,
+      required final List<dynamic>? coverage})
       : _monthList = monthList,
         _csat = csat,
         _communication = communication,
@@ -269,108 +269,108 @@ class _$_DashboardData implements _DashboardData {
   factory _$_DashboardData.fromJson(Map<String, dynamic> json) =>
       _$$_DashboardDataFromJson(json);
 
-  final List<String>? _monthList;
+  final List<dynamic>? _monthList;
   @override
-  List<String>? get monthList {
+  List<dynamic>? get monthList {
     final value = _monthList;
     if (value == null) return null;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
-  final List<String>? _csat;
+  final List<dynamic>? _csat;
   @override
-  List<String>? get csat {
+  List<dynamic>? get csat {
     final value = _csat;
     if (value == null) return null;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
-  final List<String>? _communication;
+  final List<dynamic>? _communication;
   @override
-  List<String>? get communication {
+  List<dynamic>? get communication {
     final value = _communication;
     if (value == null) return null;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
-  final List<String>? _surveyCount;
+  final List<dynamic>? _surveyCount;
   @override
-  List<String>? get surveyCount {
+  List<dynamic>? get surveyCount {
     final value = _surveyCount;
     if (value == null) return null;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
-  final List<int>? _closedCase;
+  final List<dynamic>? _closedCase;
   @override
-  List<int>? get closedCase {
+  List<dynamic>? get closedCase {
     final value = _closedCase;
     if (value == null) return null;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
-  final List<double>? _atrDays;
+  final List<dynamic>? _atrDays;
   @override
-  List<double>? get atrDays {
+  List<dynamic>? get atrDays {
     final value = _atrDays;
     if (value == null) return null;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
-  final List<int>? _ownedCases;
+  final List<dynamic>? _ownedCases;
   @override
-  List<int>? get ownedCases {
+  List<dynamic>? get ownedCases {
     final value = _ownedCases;
     if (value == null) return null;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
-  final List<double>? _adherance;
+  final List<dynamic>? _adherance;
   @override
-  List<double>? get adherance {
+  List<dynamic>? get adherance {
     final value = _adherance;
     if (value == null) return null;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
-  final List<String>? _timeoutsPhone;
+  final List<dynamic>? _timeoutsPhone;
   @override
-  List<String>? get timeoutsPhone {
+  List<dynamic>? get timeoutsPhone {
     final value = _timeoutsPhone;
     if (value == null) return null;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
-  final List<String>? _timeoutsChat;
+  final List<dynamic>? _timeoutsChat;
   @override
-  List<String>? get timeoutsChat {
+  List<dynamic>? get timeoutsChat {
     final value = _timeoutsChat;
     if (value == null) return null;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
-  final List<String>? _lateLogins;
+  final List<dynamic>? _lateLogins;
   @override
-  List<String>? get lateLogins {
+  List<dynamic>? get lateLogins {
     final value = _lateLogins;
     if (value == null) return null;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
-  final List<int>? _coverage;
+  final List<dynamic>? _coverage;
   @override
-  List<int>? get coverage {
+  List<dynamic>? get coverage {
     final value = _coverage;
     if (value == null) return null;
     // ignore: implicit_dynamic_type
@@ -442,46 +442,46 @@ class _$_DashboardData implements _DashboardData {
 
 abstract class _DashboardData implements DashboardData {
   factory _DashboardData(
-      {required final List<String>? monthList,
-      required final List<String>? csat,
-      required final List<String>? communication,
-      required final List<String>? surveyCount,
-      required final List<int>? closedCase,
-      required final List<double>? atrDays,
-      required final List<int>? ownedCases,
-      required final List<double>? adherance,
-      required final List<String>? timeoutsPhone,
-      required final List<String>? timeoutsChat,
-      required final List<String>? lateLogins,
-      required final List<int>? coverage}) = _$_DashboardData;
+      {required final List<dynamic>? monthList,
+      required final List<dynamic>? csat,
+      required final List<dynamic>? communication,
+      required final List<dynamic>? surveyCount,
+      required final List<dynamic>? closedCase,
+      required final List<dynamic>? atrDays,
+      required final List<dynamic>? ownedCases,
+      required final List<dynamic>? adherance,
+      required final List<dynamic>? timeoutsPhone,
+      required final List<dynamic>? timeoutsChat,
+      required final List<dynamic>? lateLogins,
+      required final List<dynamic>? coverage}) = _$_DashboardData;
 
   factory _DashboardData.fromJson(Map<String, dynamic> json) =
       _$_DashboardData.fromJson;
 
   @override
-  List<String>? get monthList;
+  List<dynamic>? get monthList;
   @override
-  List<String>? get csat;
+  List<dynamic>? get csat;
   @override
-  List<String>? get communication;
+  List<dynamic>? get communication;
   @override
-  List<String>? get surveyCount;
+  List<dynamic>? get surveyCount;
   @override
-  List<int>? get closedCase;
+  List<dynamic>? get closedCase;
   @override
-  List<double>? get atrDays;
+  List<dynamic>? get atrDays;
   @override
-  List<int>? get ownedCases;
+  List<dynamic>? get ownedCases;
   @override
-  List<double>? get adherance;
+  List<dynamic>? get adherance;
   @override
-  List<String>? get timeoutsPhone;
+  List<dynamic>? get timeoutsPhone;
   @override
-  List<String>? get timeoutsChat;
+  List<dynamic>? get timeoutsChat;
   @override
-  List<String>? get lateLogins;
+  List<dynamic>? get lateLogins;
   @override
-  List<int>? get coverage;
+  List<dynamic>? get coverage;
   @override
   @JsonKey(ignore: true)
   _$$_DashboardDataCopyWith<_$_DashboardData> get copyWith =>

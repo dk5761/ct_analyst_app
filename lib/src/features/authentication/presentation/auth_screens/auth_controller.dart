@@ -23,12 +23,12 @@ class AuthController extends StateNotifier<AuthState> {
     }
   }
 
-  Future<void> register(String csslId, String firstName, String lastName,
-      String password, int position) async {
+  Future<void> register(String csslId, String password, String firstName,
+      String lastName, int position) async {
     state = const AuthState.loading();
     try {
       final data = await authRepository.register(
-          csslId, firstName, lastName, password, position);
+          csslId, password, firstName, lastName, position);
       await read(authServiceProvider).addToken(data.token);
       state = const AuthState.loggedIn();
     } catch (err) {
