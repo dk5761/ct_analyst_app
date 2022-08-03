@@ -178,6 +178,7 @@ mixin _$AppUser {
   String get csslId => throw _privateConstructorUsedError;
   String get firstName => throw _privateConstructorUsedError;
   String get lastName => throw _privateConstructorUsedError;
+  int get position => throw _privateConstructorUsedError;
   bool get isAdmin => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -189,7 +190,12 @@ mixin _$AppUser {
 abstract class $AppUserCopyWith<$Res> {
   factory $AppUserCopyWith(AppUser value, $Res Function(AppUser) then) =
       _$AppUserCopyWithImpl<$Res>;
-  $Res call({String csslId, String firstName, String lastName, bool isAdmin});
+  $Res call(
+      {String csslId,
+      String firstName,
+      String lastName,
+      int position,
+      bool isAdmin});
 }
 
 /// @nodoc
@@ -205,6 +211,7 @@ class _$AppUserCopyWithImpl<$Res> implements $AppUserCopyWith<$Res> {
     Object? csslId = freezed,
     Object? firstName = freezed,
     Object? lastName = freezed,
+    Object? position = freezed,
     Object? isAdmin = freezed,
   }) {
     return _then(_value.copyWith(
@@ -220,6 +227,10 @@ class _$AppUserCopyWithImpl<$Res> implements $AppUserCopyWith<$Res> {
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String,
+      position: position == freezed
+          ? _value.position
+          : position // ignore: cast_nullable_to_non_nullable
+              as int,
       isAdmin: isAdmin == freezed
           ? _value.isAdmin
           : isAdmin // ignore: cast_nullable_to_non_nullable
@@ -234,7 +245,12 @@ abstract class _$$_AppUserCopyWith<$Res> implements $AppUserCopyWith<$Res> {
           _$_AppUser value, $Res Function(_$_AppUser) then) =
       __$$_AppUserCopyWithImpl<$Res>;
   @override
-  $Res call({String csslId, String firstName, String lastName, bool isAdmin});
+  $Res call(
+      {String csslId,
+      String firstName,
+      String lastName,
+      int position,
+      bool isAdmin});
 }
 
 /// @nodoc
@@ -251,6 +267,7 @@ class __$$_AppUserCopyWithImpl<$Res> extends _$AppUserCopyWithImpl<$Res>
     Object? csslId = freezed,
     Object? firstName = freezed,
     Object? lastName = freezed,
+    Object? position = freezed,
     Object? isAdmin = freezed,
   }) {
     return _then(_$_AppUser(
@@ -266,6 +283,10 @@ class __$$_AppUserCopyWithImpl<$Res> extends _$AppUserCopyWithImpl<$Res>
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String,
+      position: position == freezed
+          ? _value.position
+          : position // ignore: cast_nullable_to_non_nullable
+              as int,
       isAdmin: isAdmin == freezed
           ? _value.isAdmin
           : isAdmin // ignore: cast_nullable_to_non_nullable
@@ -281,6 +302,7 @@ class _$_AppUser implements _AppUser {
       {required this.csslId,
       required this.firstName,
       required this.lastName,
+      required this.position,
       required this.isAdmin});
 
   factory _$_AppUser.fromJson(Map<String, dynamic> json) =>
@@ -293,11 +315,13 @@ class _$_AppUser implements _AppUser {
   @override
   final String lastName;
   @override
+  final int position;
+  @override
   final bool isAdmin;
 
   @override
   String toString() {
-    return 'AppUser(csslId: $csslId, firstName: $firstName, lastName: $lastName, isAdmin: $isAdmin)';
+    return 'AppUser(csslId: $csslId, firstName: $firstName, lastName: $lastName, position: $position, isAdmin: $isAdmin)';
   }
 
   @override
@@ -308,6 +332,7 @@ class _$_AppUser implements _AppUser {
             const DeepCollectionEquality().equals(other.csslId, csslId) &&
             const DeepCollectionEquality().equals(other.firstName, firstName) &&
             const DeepCollectionEquality().equals(other.lastName, lastName) &&
+            const DeepCollectionEquality().equals(other.position, position) &&
             const DeepCollectionEquality().equals(other.isAdmin, isAdmin));
   }
 
@@ -318,6 +343,7 @@ class _$_AppUser implements _AppUser {
       const DeepCollectionEquality().hash(csslId),
       const DeepCollectionEquality().hash(firstName),
       const DeepCollectionEquality().hash(lastName),
+      const DeepCollectionEquality().hash(position),
       const DeepCollectionEquality().hash(isAdmin));
 
   @JsonKey(ignore: true)
@@ -338,6 +364,7 @@ abstract class _AppUser implements AppUser {
       {required final String csslId,
       required final String firstName,
       required final String lastName,
+      required final int position,
       required final bool isAdmin}) = _$_AppUser;
 
   factory _AppUser.fromJson(Map<String, dynamic> json) = _$_AppUser.fromJson;
@@ -348,6 +375,8 @@ abstract class _AppUser implements AppUser {
   String get firstName;
   @override
   String get lastName;
+  @override
+  int get position;
   @override
   bool get isAdmin;
   @override

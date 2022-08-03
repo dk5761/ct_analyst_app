@@ -20,6 +20,7 @@ class AppUser with _$AppUser {
     required String csslId,
     required String firstName,
     required String lastName,
+    required int position,
     required bool isAdmin,
   }) = _AppUser;
 

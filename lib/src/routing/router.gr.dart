@@ -18,7 +18,7 @@ import '../features/authentication/presentation/screen_holder/screen_scaffold.da
     as _i2;
 import '../features/dashboard/presentation/dashboard_screen.dart' as _i4;
 import '../features/home/presentation/home_screen.dart' as _i1;
-import '../features/home/presentation/main_screen/main_screen.dart' as _i3;
+import '../features/home/presentation/main_screen/position_wrapper.dart' as _i3;
 
 class AppRouter extends _i5.RootStackRouter {
   AppRouter([_i6.GlobalKey<_i6.NavigatorState>? navigatorKey])
@@ -34,13 +34,23 @@ class AppRouter extends _i5.RootStackRouter {
       return _i5.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i2.ScreenScaffold());
     },
-    MainScreen.name: (routeData) {
-      return _i5.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i3.MainScreen());
+    PositionWrapper.name: (routeData) {
+      return _i5.CustomPage<dynamic>(
+          routeData: routeData,
+          child: const _i3.PositionWrapper(),
+          transitionsBuilder: _i5.TransitionsBuilders.slideLeftWithFade,
+          durationInMilliseconds: 0,
+          opaque: true,
+          barrierDismissible: false);
     },
     DashboardRoute.name: (routeData) {
-      return _i5.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i4.DashboardPage());
+      return _i5.CustomPage<dynamic>(
+          routeData: routeData,
+          child: const _i4.DashboardPage(),
+          transitionsBuilder: _i5.TransitionsBuilders.slideRightWithFade,
+          durationInMilliseconds: 0,
+          opaque: true,
+          barrierDismissible: false);
     }
   };
 
@@ -52,7 +62,7 @@ class AppRouter extends _i5.RootStackRouter {
               parent: HomeRoute.name,
               redirectTo: 'main',
               fullMatch: true),
-          _i5.RouteConfig(MainScreen.name,
+          _i5.RouteConfig(PositionWrapper.name,
               path: 'main', parent: HomeRoute.name),
           _i5.RouteConfig(DashboardRoute.name,
               path: 'dashboard', parent: HomeRoute.name)
@@ -79,11 +89,11 @@ class ScreenScaffold extends _i5.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i3.MainScreen]
-class MainScreen extends _i5.PageRouteInfo<void> {
-  const MainScreen() : super(MainScreen.name, path: 'main');
+/// [_i3.PositionWrapper]
+class PositionWrapper extends _i5.PageRouteInfo<void> {
+  const PositionWrapper() : super(PositionWrapper.name, path: 'main');
 
-  static const String name = 'MainScreen';
+  static const String name = 'PositionWrapper';
 }
 
 /// generated route for

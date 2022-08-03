@@ -8,9 +8,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:ct_analyst_app/src/common/custom_button.dart';
 import 'package:ct_analyst_app/src/constants/app_breakpoints.dart';
 import 'package:ct_analyst_app/src/features/home/presentation/widgets/dailyTaskListWidget.dart';
+import 'package:ct_analyst_app/src/routing/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../constants/colors.dart';
+import '../../../authentication/data/auth_repository.dart';
 import '../../data/fridayTaskRepo.dart';
 import '../widgets/countdown.dart';
 import '../widgets/friday_task_container.dart';
@@ -25,6 +27,8 @@ class MainScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final width = MediaQuery.of(context).size.width;
     final fridayTasks = ref.watch(fetchFridayTaskProvider);
+    final position =
+        ref.read(authRepositoryProvider).currentUser!.user.position;
 
     return Container(
       color: darkSecondaryScaffoldBackgroundColor,
@@ -46,10 +50,12 @@ class MainScreen extends ConsumerWidget {
                       fontWeight: FontWeight.bold),
                 ),
               ),
-              CustomButton(
-                label: "Go To DashBoard",
-                onPressed: () => AutoRouter.of(context).pushNamed('dashboard'),
-              ),
+              if (position == 0)
+                CustomButton(
+                  label: "Go To DashBoard",
+                  onPressed: () =>
+                      AutoRouter.of(context).popAndPush(const DashboardRoute()),
+                ),
             ],
           ),
           const SizedBox(

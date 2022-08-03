@@ -1,4 +1,5 @@
 import 'package:ct_analyst_app/src/features/home/domain/friday_task.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:dio/dio.dart';
 import '../../authentication/application/auth_local_service.dart';
@@ -9,7 +10,7 @@ abstract class IFetchFridayTaskRepository {
 }
 
 final clientProvider = Provider.family((ref, token) => Dio(BaseOptions(
-    baseUrl: "http://172.30.7.80:3001/ftask/",
+    baseUrl: "http://${dotenv.env['IP']}/ftask/",
     headers: {"authorization": token})));
 
 class FetchFridayTaskRepository implements IFetchFridayTaskRepository {

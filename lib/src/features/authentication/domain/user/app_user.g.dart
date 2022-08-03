@@ -20,6 +20,7 @@ _$_AppUser _$$_AppUserFromJson(Map<String, dynamic> json) => _$_AppUser(
       csslId: json['csslId'] as String,
       firstName: json['firstName'] as String,
       lastName: json['lastName'] as String,
+      position: json['position'] as int,
       isAdmin: json['isAdmin'] as bool,
     );
 
@@ -28,5 +29,6 @@ Map<String, dynamic> _$$_AppUserToJson(_$_AppUser instance) =>
       'csslId': instance.csslId,
       'firstName': instance.firstName,
       'lastName': instance.lastName,
+      'position': instance.position,
       'isAdmin': instance.isAdmin,
     };

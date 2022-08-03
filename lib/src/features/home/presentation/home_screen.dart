@@ -5,6 +5,7 @@ import 'package:ct_analyst_app/src/constants/app_breakpoints.dart';
 import 'package:ct_analyst_app/src/features/authentication/presentation/auth_screens/login_screen.dart';
 import 'package:ct_analyst_app/src/features/home/presentation/main_screen/main_screen.dart';
 import 'package:ct_analyst_app/src/features/home/presentation/sidepanel/side_panel_screen.dart';
+import 'package:ct_analyst_app/src/routing/router.gr.dart';
 import 'package:tray_manager/tray_manager.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:flutter/material.dart' hide MenuItem;
@@ -59,6 +60,8 @@ class _HomePageState extends State<HomePage> with WindowListener, TrayListener {
     setState(() {});
   }
 
+  static const routerKey = GlobalObjectKey("auth_route");
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -77,7 +80,9 @@ class _HomePageState extends State<HomePage> with WindowListener, TrayListener {
                 ),
               ),
               body: const SplitView(
-                content: AutoRouter(),
+                content: AutoRouter(
+                  key: routerKey,
+                ),
                 menu: SidePanel(),
                 breakpoint: Breakpoint.breakpointMobile,
                 menuWidth: 3,
