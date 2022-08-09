@@ -6,8 +6,8 @@ import '../../domain/timer.dart';
 class TimerNotifier extends StateNotifier<TimerModel> {
   TimerNotifier() : super(_initialState);
 
-  static const int _initialDuration = 28800;
-  // static const int _initialDuration = 03;
+  // static const int _initialDuration = 28800;
+  static const int _initialDuration = 03;
 
   static final _initialState = TimerModel(
     _durationString(_initialDuration),
