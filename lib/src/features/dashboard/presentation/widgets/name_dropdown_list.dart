@@ -9,19 +9,17 @@ class AnalystNameDropdown extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // final names = ref.watch(fetchNamesData);
+    final names = ref.watch(fetchAnalystNames);
     String? positionValue;
 
-    return Container();
-    // return names.when(
-    //     data: (data) {
-    //       // final namesList = ref.read(dashboardRepositoryProvider).namesList;
-
-    //       return CustomDropDown(value: positionValue, names: namesList);
-    //     },
-    //     error: (error, _) {
-    //       return Text(error.toString());
-    //     },
-    //     loading: () => const CircularProgressIndicator());
+    return names.when(
+        data: (data) {
+          final namesList = ref.read(dashboardRepositoryProvider).names;
+          return CustomDropDown(value: positionValue, names: namesList);
+        },
+        error: (error, _) {
+          return Text(error.toString());
+        },
+        loading: () => const CircularProgressIndicator());
   }
 }

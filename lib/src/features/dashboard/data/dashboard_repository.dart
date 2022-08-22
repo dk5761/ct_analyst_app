@@ -7,6 +7,7 @@ import '../../authentication/application/auth_local_service.dart';
 
 abstract class IDashboardRepository {
   Future<void> fetchDashboard();
+  Future<void> fetchNames();
 }
 
 final clientProvider = Provider.family((ref, token) => Dio(BaseOptions(
@@ -19,8 +20,10 @@ class DashboardRepository implements IDashboardRepository {
   final Reader read;
 
   DashboardData? _data;
-
   DashboardData? get dashboardData => _data;
+
+  List<dynamic>? _names;
+  List<dynamic>? get names => _names;
 
   @override
   Future<DashboardData?> fetchDashboard() async {
@@ -31,6 +34,14 @@ class DashboardRepository implements IDashboardRepository {
 
     return _data;
   }
+
+  @override
+  Future<void> fetchNames() async {
+    final token = await read(authServiceProvider).getToken();
+    final response = await read(clientProvider(token)).get('/analystNames');
+
+    _names = response.data["names"];
+  }
 }
 
 final dashboardRepositoryProvider =
@@ -39,4 +50,9 @@ final dashboardRepositoryProvider =
 final fetchDashboardData = FutureProvider((ref) {
   final repoProvider = ref.watch(dashboardRepositoryProvider);
   return repoProvider.fetchDashboard();
+});
+
+final fetchAnalystNames = FutureProvider((ref) {
+  final repoProvider = ref.watch(dashboardRepositoryProvider);
+  return repoProvider.fetchNames();
 });

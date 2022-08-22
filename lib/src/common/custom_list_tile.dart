@@ -54,10 +54,15 @@ class _CustomListTileState extends State<CustomListTile> {
                 ? ConstrainedBox(
                     constraints:
                         const BoxConstraints(maxHeight: 50, maxWidth: 50),
-                    child: Image.asset(
-                      widget.imageUrl,
-                      fit: BoxFit.fill,
-                    ),
+                    child: widget.imageUrl.contains("http")
+                        ? Image.network(
+                            widget.imageUrl,
+                            fit: BoxFit.fill,
+                          )
+                        : Image.asset(
+                            widget.imageUrl,
+                            fit: BoxFit.fill,
+                          ),
                   )
                 : null,
             title: Text(widget.title),

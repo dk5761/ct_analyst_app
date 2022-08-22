@@ -17,7 +17,7 @@ class TableGenerator extends ConsumerWidget {
               scrollDirection: Axis.vertical,
               child: Row(
                 children: [
-                  FixedColumnWidget(data: const [
+                  const FixedColumnWidget(data: [
                     "csat",
                     "communication",
                     "surveyCount",

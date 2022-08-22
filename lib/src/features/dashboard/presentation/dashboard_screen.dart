@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:ct_analyst_app/src/features/dashboard/presentation/widgets/name_dropdown_list.dart';
 import 'package:ct_analyst_app/src/features/dashboard/presentation/widgets/table_generator.dart';
 import 'package:ct_analyst_app/src/routing/router.gr.dart';
 import 'package:flutter/material.dart';
@@ -38,6 +39,7 @@ class DashboardPage extends ConsumerWidget {
                   onPressed: () => AutoRouter.of(context)
                       .popAndPush(const PositionWrapper()),
                 ),
+              if (position > 0) const AnalystNameDropdown()
             ],
           ),
           const SizedBox(
