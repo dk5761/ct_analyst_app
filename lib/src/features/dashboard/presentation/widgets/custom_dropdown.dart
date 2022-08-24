@@ -34,7 +34,7 @@ class CustomDropDownState extends ConsumerState<CustomDropDown> {
       ),
       onChanged: (String? newValue) {
         ref.read(dropItemProvider.notifier).state = newValue as String;
-        // ref.refresh(fetchDashboardData(newValue));
+        ref.refresh(fetchDashboardData(newValue));
         setState(() {
           widget.value = newValue;
         });

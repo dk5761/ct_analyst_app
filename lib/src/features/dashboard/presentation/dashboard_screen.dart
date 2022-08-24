@@ -1,4 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:ct_analyst_app/src/features/dashboard/data/dashboard_repository.dart';
+import 'package:ct_analyst_app/src/features/dashboard/presentation/widgets/custom_dropdown.dart';
 import 'package:ct_analyst_app/src/features/dashboard/presentation/widgets/name_dropdown_list.dart';
 import 'package:ct_analyst_app/src/features/dashboard/presentation/widgets/table_generator.dart';
 import 'package:ct_analyst_app/src/routing/router.gr.dart';
@@ -15,6 +17,10 @@ class DashboardPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final position =
         ref.watch(authRepositoryProvider).currentUser!.user.position;
+
+    final name = ref.read(dropItemProvider.notifier).state;
+
+    final data = ref.watch(fetchDashboardData(name));
 
     return Padding(
       padding: const EdgeInsets.all(16),
@@ -45,7 +51,13 @@ class DashboardPage extends ConsumerWidget {
           const SizedBox(
             height: 12,
           ),
-          const Expanded(child: TableGenerator())
+          Expanded(
+              child: data.when(
+                  data: (data) {
+                    return TableGenerator(data: data!);
+                  },
+                  error: (error, _) => Text(error.toString()),
+                  loading: () => const CircularProgressIndicator()))
         ],
       ),
     );

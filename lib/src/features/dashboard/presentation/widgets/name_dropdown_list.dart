@@ -14,8 +14,7 @@ class AnalystNameDropdown extends ConsumerWidget {
 
     return names.when(
         data: (data) {
-          final namesList = ref.read(dashboardRepositoryProvider).names;
-          return CustomDropDown(value: positionValue, names: namesList);
+          return CustomDropDown(value: positionValue, names: data);
         },
         error: (error, _) {
           return Text(error.toString());
