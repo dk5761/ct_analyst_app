@@ -18,9 +18,7 @@ class DashboardPage extends ConsumerWidget {
     final position =
         ref.watch(authRepositoryProvider).currentUser!.user.position;
 
-    final name = ref.read(dropItemProvider.notifier).state;
-
-    final data = ref.watch(fetchDashboardData(name));
+    final ddata = ref.watch(fetchDashboardData);
 
     return Padding(
       padding: const EdgeInsets.all(16),
@@ -51,13 +49,15 @@ class DashboardPage extends ConsumerWidget {
           const SizedBox(
             height: 12,
           ),
-          Expanded(
-              child: data.when(
-                  data: (data) {
-                    return TableGenerator(data: data!);
-                  },
-                  error: (error, _) => Text(error.toString()),
-                  loading: () => const CircularProgressIndicator()))
+          ddata.when(
+            data: (data) {
+              return Expanded(child: TableGenerator(data: data));
+            },
+            error: (error, _) => Text(error.toString()),
+            loading: () => const SizedBox(
+              child: CircularProgressIndicator(),
+            ),
+          ),
         ],
       ),
     );

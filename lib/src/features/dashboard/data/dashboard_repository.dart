@@ -1,4 +1,5 @@
 import 'package:ct_analyst_app/src/features/dashboard/domain/dashboard_data.dart';
+import 'package:ct_analyst_app/src/features/dashboard/presentation/widgets/custom_dropdown.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -22,9 +23,11 @@ class DashboardRepository implements IDashboardRepository {
   @override
   Future<DashboardData?> fetchDashboard(name) async {
     final token = await read(authServiceProvider).getToken();
+
     final response = await read(clientProvider(token))
         .get('/getData', queryParameters: {"name": name});
-    return response.data;
+
+    return DashboardData.fromJson(response.data);
   }
 
   @override
@@ -39,9 +42,16 @@ class DashboardRepository implements IDashboardRepository {
 final dashboardRepositoryProvider =
     Provider((ref) => DashboardRepository(ref.read));
 
-final fetchDashboardData =
-    FutureProvider.family<DashboardData?, String>((ref, name) {
+// final fetchDashboardData =
+//     FutureProvider.family<DashboardData?, String>((ref, name) async {
+//   final repoProvider = ref.watch(dashboardRepositoryProvider);
+//   print("name $name ");
+//   return repoProvider.fetchDashboard(name);
+// });
+
+final fetchDashboardData = FutureProvider<DashboardData?>((ref) {
   final repoProvider = ref.watch(dashboardRepositoryProvider);
+  final name = ref.read(dropItemProvider);
   return repoProvider.fetchDashboard(name);
 });
 

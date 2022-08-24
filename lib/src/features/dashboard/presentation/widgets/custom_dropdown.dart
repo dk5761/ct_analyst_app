@@ -24,30 +24,36 @@ class CustomDropDownState extends ConsumerState<CustomDropDown> {
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
-      value: widget.value,
-      borderRadius: const BorderRadius.all(Radius.circular(12)),
-      elevation: 16,
-      style: const TextStyle(color: darkHeaderTextColor),
-      underline: Container(
-        height: 0,
-        color: darkTextEnableFocusColor,
-      ),
-      onChanged: (String? newValue) {
-        ref.read(dropItemProvider.notifier).state = newValue as String;
-        ref.refresh(fetchDashboardData(newValue));
-        setState(() {
-          widget.value = newValue;
-        });
-      },
-      items: widget.names!.map<DropdownMenuItem<String>>((dynamic value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Padding(
-              padding: const EdgeInsets.all(8), child: Text(value as String)),
-        );
-      }).toList(),
-    );
+        value: ref.watch(dropItemProvider),
+        borderRadius: const BorderRadius.all(Radius.circular(12)),
+        elevation: 16,
+        style: const TextStyle(color: darkHeaderTextColor),
+        underline: Container(
+          height: 0,
+          color: darkTextEnableFocusColor,
+        ),
+        onChanged: (String? newValue) {
+          ref.read(dropItemProvider.notifier).state = newValue as String;
+          ref.refresh(fetchDashboardData);
+          setState(() {
+            widget.value = newValue;
+          });
+        },
+        items: [
+          const DropdownMenuItem(
+            value: "Select analyst Name",
+            child: Text("Select analyst Name"),
+          ),
+          ...widget.names!.map<DropdownMenuItem<String>>((dynamic value) {
+            return DropdownMenuItem<String>(
+              value: value,
+              child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Text(value as String)),
+            );
+          }).toList(),
+        ]);
   }
 }
 
-final dropItemProvider = StateProvider<String>((ref) => "");
+final dropItemProvider = StateProvider<String>((ref) => "Select analyst Name");

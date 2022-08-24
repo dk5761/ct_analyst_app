@@ -6,31 +6,33 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class TableGenerator extends ConsumerWidget {
-  final DashboardData data;
+  final DashboardData? data;
   const TableGenerator({Key? key, required this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Row(
-          children: [
-            const FixedColumnWidget(data: [
-              "csat",
-              "communication",
-              "surveyCount",
-              "closedCase",
-              "atrDays",
-              "ownedCases",
-              "adherance",
-              "timeoutsPhone",
-              "timeoutsChat",
-              "lateLogins",
-              "coverage"
-            ]),
-            ScrollableColumnWidget(data: data)
-          ],
-        ));
+    return data == null
+        ? const Text("data is Null")
+        : SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Row(
+              children: [
+                const FixedColumnWidget(data: [
+                  "csat",
+                  "communication",
+                  "surveyCount",
+                  "closedCase",
+                  "atrDays",
+                  "ownedCases",
+                  "adherance",
+                  "timeoutsPhone",
+                  "timeoutsChat",
+                  "lateLogins",
+                  "coverage"
+                ]),
+                ScrollableColumnWidget(data: data!)
+              ],
+            ));
   }
 }
 
