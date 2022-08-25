@@ -12,13 +12,18 @@ class PositionWrapper extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final position =
-        ref.read(authRepositoryProvider).currentUser!.user.position;
+    final currUser = ref.read(getCurrentUser);
 
-    if (position == 0) {
-      return const MainScreen();
-    }
+    return currUser.when(
+        data: (user) {
+          final position = user!.user.position;
+          if (position == 0) {
+            return const MainScreen();
+          }
 
-    return const DashboardPage();
+          return const DashboardPage();
+        },
+        error: (error, _) => Text(error.toString()),
+        loading: () => const Center(child: CircularProgressIndicator()));
   }
 }

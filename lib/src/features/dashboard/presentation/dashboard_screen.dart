@@ -15,51 +15,55 @@ class DashboardPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final position =
-        ref.watch(authRepositoryProvider).currentUser!.user.position;
-
+    final currUser = ref.read(getCurrentUser);
     final ddata = ref.watch(fetchDashboardData);
+    return currUser.when(
+        data: (user) {
+          final position = user!.user.position;
 
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 12.0),
-                child: Text(
-                  "Dashboard",
-                  style: TextStyle(
-                      color: darkHeaderTextColor,
-                      fontSize: 21,
-                      fontWeight: FontWeight.bold),
+          return Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 12.0),
+                      child: Text(
+                        "Dashboard",
+                        style: TextStyle(
+                            color: darkHeaderTextColor,
+                            fontSize: 21,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    if (position == 0)
+                      CustomButton(
+                        label: "Go To Task Screen",
+                        onPressed: () => AutoRouter.of(context)
+                            .popAndPush(const PositionWrapper()),
+                      ),
+                    if (position > 0) const AnalystNameDropdown()
+                  ],
                 ),
-              ),
-              if (position == 0)
-                CustomButton(
-                  label: "Go To Task Screen",
-                  onPressed: () => AutoRouter.of(context)
-                      .popAndPush(const PositionWrapper()),
+                const SizedBox(
+                  height: 12,
                 ),
-              if (position > 0) const AnalystNameDropdown()
-            ],
-          ),
-          const SizedBox(
-            height: 12,
-          ),
-          ddata.when(
-            data: (data) {
-              return Expanded(child: TableGenerator(data: data));
-            },
-            error: (error, _) => Text(error.toString()),
-            loading: () => const SizedBox(
-              child: CircularProgressIndicator(),
+                ddata.when(
+                  data: (data) {
+                    return Expanded(child: TableGenerator(data: data));
+                  },
+                  error: (error, _) => Text(error.toString()),
+                  loading: () => const SizedBox(
+                    child: CircularProgressIndicator(),
+                  ),
+                ),
+              ],
             ),
-          ),
-        ],
-      ),
-    );
+          );
+        },
+        error: (error, _) => Text(error.toString()),
+        loading: () => const Center(child: CircularProgressIndicator()));
   }
 }

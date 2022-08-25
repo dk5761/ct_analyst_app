@@ -1,3 +1,4 @@
+import 'package:ct_analyst_app/src/features/authentication/application/auth_local_service.dart';
 import 'package:ct_analyst_app/src/features/authentication/domain/user/app_user.dart';
 import 'package:ct_analyst_app/src/utils/functions.dart';
 import 'package:dio/dio.dart';
@@ -19,17 +20,16 @@ class AuthRepository implements IAuthRepository {
 
   final ProviderRef ref;
 
-  User? _currentUser;
-  User? get currentUser => _currentUser;
-
   @override
   Future<User> login(String csslId, String password) async {
     final response = await ref
         .read(clientProvider)
         .post('login', data: {"csslId": csslId, "password": password});
 
-    _currentUser = User.fromJson(response.data);
-    return User.fromJson(response.data);
+    final user = User.fromJson(response.data);
+    ref.read(authServiceProvider).saveUser(user);
+
+    return user;
   }
 
   @override
@@ -43,18 +43,17 @@ class AuthRepository implements IAuthRepository {
       "position": position
     });
 
-    _currentUser = User.fromJson(response.data);
-
-    return User.fromJson(response.data);
+    final user = User.fromJson(response.data);
+    ref.read(authServiceProvider).saveUser(user);
+    return user;
   }
 
   @override
   Future<void> signOut() async {
-    _currentUser = null;
+    ref.read(authServiceProvider).deleteUser();
   }
 }
 
 final authRepositoryProvider = Provider((ref) => AuthRepository(ref));
 
-final currentUserProvider =
-    Provider((ref) => ref.watch(authRepositoryProvider).currentUser);
+final getCurrentUser = Provider((ref) => ref.watch(userProvider));
