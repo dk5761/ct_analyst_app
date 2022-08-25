@@ -27,6 +27,10 @@ class DashboardRepository implements IDashboardRepository {
     final response = await read(clientProvider(token))
         .get('/getData', queryParameters: {"name": name});
 
+    if (response.data == null) {
+      return null;
+    }
+
     return DashboardData.fromJson(response.data);
   }
 

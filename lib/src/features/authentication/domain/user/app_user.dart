@@ -1,4 +1,6 @@
 // import 'package:flutter_boilerplate/shared/http/app_exception.dart';
+import 'dart:convert';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'app_user.freezed.dart';

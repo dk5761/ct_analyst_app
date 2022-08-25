@@ -41,7 +41,7 @@ class CustomDropDownState extends ConsumerState<CustomDropDown> {
         },
         items: [
           const DropdownMenuItem(
-            value: "Select analyst Name",
+            value: "",
             child: Text("Select analyst Name"),
           ),
           ...widget.names!.map<DropdownMenuItem<String>>((dynamic value) {
@@ -56,4 +56,4 @@ class CustomDropDownState extends ConsumerState<CustomDropDown> {
   }
 }
 
-final dropItemProvider = StateProvider<String>((ref) => "Select analyst Name");
+final dropItemProvider = StateProvider<String>((ref) => "");

@@ -16,12 +16,14 @@ class ScrollableColumnWidget extends StatelessWidget {
         child: DataTable(
           headingRowColor: MaterialStateProperty.all(darkButtonBackgroundColor),
           columnSpacing: 40,
-          decoration: const BoxDecoration(
-            border: Border(
-              right: BorderSide(
-                color: Colors.grey,
-                width: 0.5,
-              ),
+          border: const TableBorder(
+            right: BorderSide(
+              width: 0.50,
+              color: Colors.grey,
+            ),
+            verticalInside: BorderSide(
+              width: 0.50,
+              color: Colors.grey,
             ),
           ),
           columns: [...data.monthList!.map((e) => DataColumn(label: Text(e)))],

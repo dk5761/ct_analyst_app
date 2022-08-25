@@ -12,7 +12,7 @@ class TableGenerator extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return data == null
-        ? const Text("data is Null")
+        ? const Text("Select an Analyst from the drop down")
         : SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Row(
@@ -35,64 +35,3 @@ class TableGenerator extends ConsumerWidget {
             ));
   }
 }
-
-
-// SingleChildScrollView(
-//               scrollDirection: Axis.horizontal,
-//               child: DataTable(
-//                 columns: [
-//                   const DataColumn(label: Text("")),
-//                   ...data!.monthList!.map((e) => DataColumn(label: Text(e)))
-//                 ],
-//                 rows: [
-//                   DataRow(cells: [
-//                     const DataCell(Text("CSAT")),
-//                     ...data.csat!.map((e) => DataCell(Text(e.toString())))
-//                   ]),
-//                   DataRow(cells: [
-//                     const DataCell(Text("Communication")),
-//                     ...data.communication!
-//                         .map((e) => DataCell(Text(e.toString())))
-//                   ]),
-//                   DataRow(cells: [
-//                     const DataCell(Text("Survey Count")),
-//                     ...data.surveyCount!
-//                         .map((e) => DataCell(Text(e.toString())))
-//                   ]),
-//                   DataRow(cells: [
-//                     const DataCell(Text("Closed Cases")),
-//                     ...data.closedCase!.map((e) => DataCell(Text(e.toString())))
-//                   ]),
-//                   DataRow(cells: [
-//                     const DataCell(Text("ATR Days")),
-//                     ...data.atrDays!.map((e) => DataCell(Text(e.toString())))
-//                   ]),
-//                   DataRow(cells: [
-//                     const DataCell(Text("Owned Cases")),
-//                     ...data.ownedCases!.map((e) => DataCell(Text(e.toString())))
-//                   ]),
-//                   DataRow(cells: [
-//                     const DataCell(Text("Adherance")),
-//                     ...data.adherance!.map((e) => DataCell(Text(e.toString())))
-//                   ]),
-//                   DataRow(cells: [
-//                     const DataCell(Text("Timeouts Phone")),
-//                     ...data.timeoutsPhone!
-//                         .map((e) => DataCell(Text(e.toString())))
-//                   ]),
-//                   DataRow(cells: [
-//                     const DataCell(Text("Timeouts Chat")),
-//                     ...data.timeoutsChat!
-//                         .map((e) => DataCell(Text(e.toString())))
-//                   ]),
-//                   DataRow(cells: [
-//                     const DataCell(Text("Late Logins")),
-//                     ...data.lateLogins!.map((e) => DataCell(Text(e.toString())))
-//                   ]),
-//                   DataRow(cells: [
-//                     const DataCell(Text("Coverage")),
-//                     ...data.coverage!.map((e) => DataCell(Text(e.toString())))
-//                   ]),
-//                 ],
-//               ),
-//             ),

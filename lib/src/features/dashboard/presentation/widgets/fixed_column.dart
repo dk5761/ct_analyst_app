@@ -14,12 +14,12 @@ class FixedColumnWidget extends StatelessWidget {
         border: Border(
           right: BorderSide(
             color: darkHeaderTextColor,
-            width: 2,
+            width: 0.5,
           ),
         ),
       ),
       columns: const [
-        DataColumn(label: Text('Params')),
+        DataColumn(label: Text('Parameters')),
       ],
       rows: [
         ...data.map((e) => DataRow(
