@@ -15,7 +15,7 @@ class DashboardPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final currUser = ref.read(getCurrentUser);
+    final currUser = ref.watch(getCurrentUser);
     final ddata = ref.watch(fetchDashboardData);
     return currUser.when(
         data: (user) {

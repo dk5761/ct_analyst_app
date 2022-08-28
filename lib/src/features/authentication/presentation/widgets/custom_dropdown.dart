@@ -34,11 +34,7 @@ class _CustomDropDown extends State<CustomDropDown> {
       },
       items: <String>[
         'Analyst',
-        'Tech Lead',
-        'Team Coach',
-        'Manager',
-        'Manager Head',
-        'Branch Head'
+        'Non-Analyst',
       ].map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(
           value: value,

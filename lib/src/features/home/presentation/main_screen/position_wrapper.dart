@@ -12,7 +12,7 @@ class PositionWrapper extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final currUser = ref.read(getCurrentUser);
+    final currUser = ref.watch(getCurrentUser);
 
     return currUser.when(
         data: (user) {

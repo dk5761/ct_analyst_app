@@ -19,7 +19,7 @@ class MainScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final width = MediaQuery.of(context).size.width;
     final fridayTasks = ref.watch(fetchFridayTaskProvider);
-    final currUser = ref.read(getCurrentUser);
+    final currUser = ref.watch(getCurrentUser);
 
     return currUser.when(
         data: (user) {
